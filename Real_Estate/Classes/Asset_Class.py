@@ -1,4 +1,4 @@
-from Configs.app_config import db
+from app_config import db
 
 
 class AssetsData(db.Model):
