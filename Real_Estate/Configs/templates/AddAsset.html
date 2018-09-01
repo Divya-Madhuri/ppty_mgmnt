@@ -4,6 +4,7 @@
 
     <h1>Create New Asset</h1>
     <p>Please fill following fields</p>
+
      <hr/>
 
       {%- for category, message in get_flashed_messages(with_categories = true) %}
@@ -13,17 +14,18 @@
       {%- endfor %}
 
       <form action = "{{ request.path }}" method = "post">
-          <label for = "id">id</label> <input type = "text" name = "id"  />
-          <label for = "name">Name</label><input type = "text" name = "name"  />
-          <label for = "location">Location</label><input type = "text" name = "location" />
+          <label for = "id">id</label> <input type = "text" name = "id"  /><br>
+          <label for = "location">Location</label><input type = "text" name = "location" /><br>
           <label for = "dimensions">Dimensions</label><input type = "text" name = "dimensions"  /><br>
-          <label for = "history_id">history_id</label><input type = "text" name = "history_id"  />
-          <label for = "status">Status</label><input type = "text" name = "status"  />
-          <label for = "Actual_Value">Actual Price</label><input type = "text" name = "Actual_Value" />
+          <label for = "history_id">history_id</label><input type = "text" name = "history_id"  /><br>
+          <label for = "status">Status</label><input type = "text" name = "status"  /><br>
+          <label for = "Actual_Value">Actual Price</label><input type = "text" name = "Actual_Value" /><br>
           <label for = "Selling_price">Selling price</label><input type = "text" name = "Selling_price" /><br>
-          <label for = "Payment_mode">Payment Mode</label><input type = "text" name = "Payment_mode" />
-          <label for = "Pay_duration">Pay duration</label><input type = "text" name = "Pay_duration"  />
+          <label for = "Payment_mode">Payment Mode</label><input type = "text" name = "Payment_mode" /><br>
+          <label for = "Pay_duration">Pay duration</label><input type = "text" name = "Pay_duration"  /><br>
           <label for = "Broker_charges">Broker charges</label><input type = "text" name = "Broker_charges"  /><br>
+          <label for = "name">Name</label><input type = "text" name = "name"  /><br>
+          <p>Not in the list, please </p><a href="/add_people" >click here</a> <p> to add a name to the system</p><br>
           <input type = "submit" value = "Submit" />
       </form>
 

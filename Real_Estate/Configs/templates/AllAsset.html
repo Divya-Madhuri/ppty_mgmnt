@@ -7,7 +7,19 @@
       {%- for message in get_flashed_messages() %}
          {{ message }}
       {%- endfor %}
-<table>
+<style>
+table, th, td {
+    border: 1px solid black;
+
+}
+table {
+    width: 100%;
+    background-color: #f1f1c1;
+}
+</style>
+
+<table style="width:100%">
+      <caption>Assets Table</caption>
          <thead>
             <tr>
                 <th>Customer id</th>
