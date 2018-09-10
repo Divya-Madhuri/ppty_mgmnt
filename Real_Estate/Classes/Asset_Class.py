@@ -12,13 +12,22 @@ class AssetsData(db.Model):
     Selling_price = db.Column(db.Integer)
     Payment_mode = db.Column(db.String)
     Pay_duration = db.Column( db.Integer)
-    Mideater_comission = db.Column(db.String)
+    Broker_charges = db.Column(db.String)
 
-    def __init__(self, asset_id, cust_name, location, dimensions, hist_id, status, tp, sp):
+    def __init__(self, asset_id, cust_name, location, dimensions, hist_id, status, tp, sp, mode, time, comm):
         self.id = asset_id
         self.name = cust_name
         self.location = location
         self.dimensions = dimensions
         self.history_data = hist_id
+        self.status = status
         self.Actual_Value = tp
+        self.Selling_price = sp
+        self.Payment_mode = mode
+        self.Pay_duration = time
+        self.Broker_charges = comm
+
+
+db.create_all()
+
 

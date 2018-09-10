@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>All Assets</h1>
+    <p>Lists all assets that are available in our system</p>
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+<style>
+table, th, td {
+    border: 1px solid black;
+
+}
+table {
+    width: 100%;
+    background-color: #f1f1c1;
+}
+</style>
+
+<table style="width:100%">
+      <caption>Assets Table</caption>
+         <thead>
+            <tr>
+                <th>Customer id</th>
+               <th>Name</th>
+               <th>Location</th>
+               <th>dimensions</th>
+               <th>history_id</th>
+               <th>status</th>
+               <th>Asset Value</th>
+               <th>Selling price</th>
+               <th>Payment mode</th>
+               <th>Pay duration</th>
+                <th>Broker Charges</th>
+
+
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for Asset in All_Assets %}
+               <tr>
+                  <td>{{ Asset.id }}</td>
+                   <td>{{ Asset.name }}</td>
+                  <td>{{ Asset.location }}</td>
+                  <td>{{ Asset.dimensions }}</td>
+                  <td>{{ Asset.history_id }}</td>
+                   <td>{{ Asset.status }}</td>
+                  <td>{{ Asset.Actual_Value }}</td>
+                  <td>{{ Asset.Selling_price }}</td>
+                   <td>{{ Asset.Payment_mode }}</td>
+                  <td>{{ Asset.Pay_duration }}</td>
+                  <td>{{ Asset.Broker_charges }}</td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+
+
+
+{% endblock %}

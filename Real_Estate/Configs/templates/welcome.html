@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Welcome To FlaskApp of Real Estate Management</h1>
+    <p class="lead">This application is built on the Python Flask framework and is the focus for the "Python Flask From Scratch" YouTube series</p>
+        <p class="test">This application is for real estate management system</p>
+    <img src="https://wallpaperbrowse.com/media/images/3D-Animated-HD-Wallpapers-by-techblogstop-9.jpg">
+
+
+    {% if session.logged_in == NULL %}
+      <a href="/Add" class="btn btn-primary btn-lg">Add Assets</a>
+      <a href="/All" class="btn btn-success btn-lg">All Assets</a>
+    {% endif %}
+  </div>
+{% endblock %}
