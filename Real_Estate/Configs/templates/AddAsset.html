@@ -13,6 +13,7 @@
          </div>
       {%- endfor %}
 
+
       <form action = "{{ request.path }}" method = "post">
           <label for = "id">id</label> <input type = "text" name = "id"  /><br>
           <label for = "location">Location</label><input type = "text" name = "location" /><br>
@@ -28,6 +29,8 @@
           <p>Not in the list, please </p><a href="/add_people" >click here</a> <p> to add a name to the system</p><br>
           <input type = "submit" value = "Submit" />
       </form>
+
+      <a href="/Back" class="btn btn-primary btn-lg">Back</a>
 
    </body>
 </html>

@@ -33,6 +33,7 @@ table {
                <th>Payment mode</th>
                <th>Pay duration</th>
                 <th>Broker Charges</th>
+                <th>Make Changes</th>
 
 
             </tr>
@@ -40,6 +41,7 @@ table {
 
          <tbody>
             {% for Asset in All_Assets %}
+
                <tr>
                   <td>{{ Asset.id }}</td>
                    <td>{{ Asset.name }}</td>
@@ -52,11 +54,18 @@ table {
                    <td>{{ Asset.Payment_mode }}</td>
                   <td>{{ Asset.Pay_duration }}</td>
                   <td>{{ Asset.Broker_charges }}</td>
+                   <td><a href="{{ url_for('update', update_id=Asset.id)}}" role="button" class="btn btn-sm btn-warning" >Update</a></td>
 
                </tr>
+
+
             {% endfor %}
+
          </tbody>
       </table>
+
+
+      <a href="/Back" class="btn btn-primary btn-lg">Back</a>
 
 
 
