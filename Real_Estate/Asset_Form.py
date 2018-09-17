@@ -101,5 +101,15 @@ def update(update_id):
     return redirect("All")
 
 
+@app.route('/delete/<delete_id>', methods=['GET', 'POST'])
+def delete(delete_id):
+    delete_asset = AssetsData.query.filter_by(id=delete_id).first()
+    db.session.delete(delete_asset)
+    db.session.commit()
+    flash('Record was successfully deleted')
+
+    return redirect("All")
+
+
 if __name__ == '__main__':
    app.run(debug=True)
