@@ -5,8 +5,7 @@ from Classes.People_Class import People
 from Classes.Roles import Roles
 
 
-All_Assets=AssetsData.query.all()
-customer_name= AssetsData.query.filter_by(name = 'test').all()
+customer_name= AssetsData.query.filter_by(name='test').all()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -16,21 +15,15 @@ def welcome():
 
 @app.route('/All', methods=['GET', 'POST'])
 def all_assets():
-    return render_template('AllAsset.html', All_Assets=All_Assets)
-
-
-@app.route('/Back', methods=['GET', 'POST'])
-def back():
-    return render_template('welcome.html')
-
-
-@app.route('/BackAsset', methods=['GET', 'POST'])
-def backasset():
+    All_Assets = AssetsData.query.all()
     return render_template('AllAsset.html', All_Assets=All_Assets)
 
 
 @app.route('/Add', methods=['GET', 'POST'])
 def add_assets():
+
+    if request.method == 'GET':
+        return render_template('AddAsset.html')
 
     if request.form:
         print(request.form)
@@ -48,7 +41,7 @@ def add_assets():
             db.session.add(assets)
             db.session.commit()
             flash('Record was successfully added')
-    return render_template('AddAsset.html')
+            return redirect("All")
 
 
 @app.route('/add_people', methods=['GET', 'POST'])
@@ -73,7 +66,7 @@ def update(update_id):
 
     update_asset = AssetsData.query.filter_by(id=update_id).first()
 
-    if request.method == 'GET' :
+    if request.method == 'GET':
         return render_template('UpdateAsset.html', update_id=update_id, update_asset=update_asset)
 
     elif request.method == 'POST':
