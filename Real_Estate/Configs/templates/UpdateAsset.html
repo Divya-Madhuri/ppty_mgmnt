@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h1>Update yourAsset</h1>
+     <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+            {{ message }}
+
+      {%- endfor %}
+
+      <form action = "{{request.path}}" method = "post">
+          <label for = "id">id</label> <input type = "hidden" name = "id"  value="{{update_asset.id}}"/><br>
+          <label for = "location">Location</label><input type = "text" name = "location" value="{{update_asset.location}}"/><br>
+          <label for = "dimensions">Dimensions</label><input type = "text" name = "dimensions" value="{{update_asset.dimensions }}"  /><br>
+          <label for = "history_id">history_id</label><input type = "hidden" name = "history_id" value="{{update_asset.history_id}}" /><br>
+          <label for = "status">Status</label><input type = "text" name = "status"  value="{{update_asset.status}}" /><br>
+          <label for = "Actual_Value">Actual Price</label><input type = "text" name = "Actual_Value"  value="{{update_asset.Actual_Value}}"/><br>
+          <label for = "Selling_price">Selling price</label><input type = "text" name = "Selling_price" value="{{update_asset.Selling_price}}"/><br>
+          <label for = "Payment_mode">Payment Mode</label><input type = "text" name = "Payment_mode" value="{{update_asset.Payment_mode}}"/><br>
+          <label for = "Pay_duration">Pay duration</label><input type = "text" name = "Pay_duration"  value="{{update_asset.Pay_duration}}"/><br>
+          <label for = "Broker_charges">Broker charges</label><input type = "text" name = "Broker_charges" value="{{update_asset.Broker_charges}}" /><br>
+          <label for = "name">Name</label><input type = "text" name = "name" value="{{update_asset.name}}" /><br>
+          <input type = "submit" value = "Submit" />
+      </form>
+      <a href="/All" class="btn btn-primary btn-lg">Back</a>
+
+   </body>
+</html>
+{% endblock %}
+
