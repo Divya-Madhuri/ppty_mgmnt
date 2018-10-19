@@ -92,6 +92,7 @@ def update(update_id):
             db.session.commit()
             flash('Record was successfully updated')
             return redirect("All")
+        return render_template('UpdateAsset.html', update_id=update_id, update_asset=update_asset)
 
 
 @app.route('/delete/<delete_id>', methods=['GET', 'POST'])
