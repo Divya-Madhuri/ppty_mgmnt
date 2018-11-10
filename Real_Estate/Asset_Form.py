@@ -42,14 +42,15 @@ def add_assets():
             db.session.commit()
             flash('Record was successfully added')
             return redirect("All")
+        return render_template('AddAsset.html')
 
 
 @app.route('/add_people', methods=['GET', 'POST'])
 def add_people():
-
     if request.method == 'POST':
         if not request.form['id'] or not request.form['name']:
             flash('Please enter all the fields', 'error')
+
         else:
             people = People(request.form['id'], request.form['name'], request.form['role'],
                                 request.form['gender'], request.form['age'], request.form['mobile_num'],
@@ -63,7 +64,6 @@ def add_people():
 
 @app.route('/update/<update_id>', methods=['GET', 'POST'])
 def update(update_id):
-
     update_asset = AssetsData.query.filter_by(id=update_id).first()
 
     if request.method == 'GET':
@@ -71,7 +71,8 @@ def update(update_id):
 
     elif request.method == 'POST':
         if not request.form['id'] or not request.form['name']:
-            flash('Please enter all the fields', 'error')
+            flash('Name cannot be blank, please enter name', 'error')
+
         else:
             update_assets = AssetsData(request.form['id'], request.form['name'],
                                 request.form['location'], request.form['dimensions'], request.form['history_id'],
@@ -90,8 +91,8 @@ def update(update_id):
 
             db.session.commit()
             flash('Record was successfully updated')
-
-    return redirect("All")
+            return redirect("All")
+        return render_template('UpdateAsset.html', update_id=update_id, update_asset=update_asset)
 
 
 @app.route('/delete/<delete_id>', methods=['GET', 'POST'])
