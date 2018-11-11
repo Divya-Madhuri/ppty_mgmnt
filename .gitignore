@@ -3,3 +3,4 @@
 VirtualEnv/
 *.pyc
 *.db
+.DS_Store
